@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   }
 
   useEffect(() => {
+
     let minus = window.innerHeight / 4
 
     const nav = document.querySelector('.profile-nav')
@@ -72,6 +74,12 @@ function App() {
       })
     })
 
+    axios({
+      url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/profile',
+      // url: 'http://localhost:8080/api/profile',
+      withCredentials: true,
+      method: 'GET'
+    })
   }, [])
 
   useEffect(() => {
